@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SIMPLE TSKR APP USING Next.js & DRIZZLE
 
-## Getting Started
+## TODOS:
 
-First, run the development server:
+- [x] Initial Cleanup
+- [x] Initial Tailwind theme setup
+- [x] Initial Planning
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> Initial Commit
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [ ] Essential Packages installations
+- [ ] DB setup
+- [ ] Header & Fooder Components Initial Dev
+- [ ] ...
+- [ ] ...
+- [ ] ...
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Notes:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Schema:
 
-## Learn More
+#### Users
 
-To learn more about Next.js, take a look at the following resources:
+| Column       |  Type  | Nullable |       Extra |
+| :----------- | :----: | :------: | ----------: |
+| id           |  Int   |    NO    | Primary Key |
+| FirstName    | String |    No    |             |
+| LastName     | String |    No    |             |
+| Username     | String |    NO    |      Unique |
+| Email        | String |    No    |      Unique |
+| Password     | String |    No    |             |
+| refreshToken | String |   Yes    |          No |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Projects
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| Column      |  Type   | Nullable |        Extra |
+| :---------- | :-----: | :------: | -----------: |
+| id          |   Int   |    No    |  Primary Key |
+| Name        | String  |    No    |              |
+| Description | String  |   YES    |              |
+| Note        |  Text   |   YES    |              |
+| ColorCode   | String  |    No    |              |
+| Archived    | Boolean |    NO    | Default = NO |
+| userId      |   INT   |    NO    |  Foreign Key |
 
-## Deploy on Vercel
+#### Tasks
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Column    |   Type   | Nullable |           Extra |
+| :-------- | :------: | :------: | --------------: |
+| id        |   Int    |    No    |     Primary Key |
+| Name      |  String  |    No    |                 |
+| Note      |   Text   |   Yes    |                 |
+| Done      | Boolean  |    NO    | Default = False |
+| createdAt | Datetime |    No    |   Default=Now() |
+| Due       | Datetime |   YES    |                 |
+| projectId |   int    |    No    |     Foreign Key |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Pages
+
+- Home / Landing page
+- Auth pages (Sign In & Up)
+- Protected Pages
+  - User info view/update
+  - Main Tasks Pages
+    - Today
+    - Project Pages
+    - Archived Projects
