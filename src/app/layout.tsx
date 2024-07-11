@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 
-const nunito_sans = Nunito_Sans({ subsets: ["latin"] });
+const nunito_sans = Nunito_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["geneva", "verdana", "sans-serif"],
+});
 
 export const metadata: Metadata = {
   title: "TSKR",

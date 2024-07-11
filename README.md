@@ -8,8 +8,13 @@
 
 > Initial Commit
 
-- [ ] Essential Packages installations
-- [ ] DB setup
+- [x] Essential Packages installations
+- [x] Drizzle / DB setup
+  - [x] Schema
+  - [x] Migration Setup
+  - [x] Initial Migration
+  - [x] Run First Insert Query
+  - [x] Run First Select Query
 - [ ] Header & Fooder Components Initial Dev
 - [ ] ...
 - [ ] ...
@@ -33,15 +38,17 @@
 
 #### Projects
 
-| Column      |  Type   | Nullable |        Extra |
-| :---------- | :-----: | :------: | -----------: |
-| id          |   Int   |    No    |  Primary Key |
-| Name        | String  |    No    |              |
-| Description | String  |   YES    |              |
-| Note        |  Text   |   YES    |              |
-| ColorCode   | String  |    No    |              |
-| Archived    | Boolean |    NO    | Default = NO |
-| userId      |   INT   |    NO    |  Foreign Key |
+| Column      |   Type   | Nullable |         Extra |
+| :---------- | :------: | :------: | ------------: |
+| id          |   Int    |    No    |   Primary Key |
+| Name        |  String  |    No    |               |
+| Description |  String  |   YES    |               |
+| Note        |   Text   |   YES    |               |
+| ColorCode   |  String  |    No    |               |
+| Archived    | Boolean  |    NO    |  Default = NO |
+| createdAt   | Datetime |    No    | Default=Now() |
+| archivedAt  | Datetime |   Yes    |               |
+| userId      |   INT    |    NO    |   Foreign Key |
 
 #### Tasks
 
