@@ -15,7 +15,11 @@
   - [x] Initial Migration
   - [x] Run First Insert Query
   - [x] Run First Select Query
-- [ ] Header & Fooder Components Initial Dev
+
+> Chore db schema setup and connection testing
+> Docs docs update Fix removed unwanted apis
+
+- [ ] ...
 - [ ] ...
 - [ ] ...
 - [ ] ...
@@ -64,11 +68,10 @@
 
 ### Pages
 
-- Home / Landing page
 - Auth pages (Sign In & Up)
 - Protected Pages
-  - User info view/update
   - Main Tasks Pages
     - Today
     - Project Pages
     - Archived Projects
+  - User info view/update
