@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
+import AuthContextProvider from "@/contexts/Auth/AuthContextProvider";
+import refresh from "@/actions/refresh";
 
 const nunito_sans = Nunito_Sans({
   subsets: ["latin"],
@@ -14,15 +16,23 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const refreshObj = await refresh();
+  if (!refreshObj.success && refreshObj.error) {
+    throw new Error(refreshObj.errMsg);
+  }
   return (
     <html lang="en">
       <body className={nunito_sans.className}>
-        <main>{children}</main>
+        <AuthContextProvider
+          accessToken={refreshObj.success ? refreshObj.token : ""}
+        >
+          {children}
+        </AuthContextProvider>
       </body>
     </html>
   );

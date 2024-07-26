@@ -22,6 +22,7 @@ const config: Config = {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
         accent: "var(--accent)",
+        danger: "#ef4444",
       },
       fontSize: {
         "logo-font": "var(--logo-font)",

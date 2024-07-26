@@ -1,6 +1,6 @@
 # SIMPLE TSKR APP USING Next.js & DRIZZLE
 
-## TODOS:
+## MYTODOS:
 
 - [x] Initial Cleanup
 - [x] Initial Tailwind theme setup
@@ -17,9 +17,22 @@
   - [x] Run First Select Query
 
 > Chore db schema setup and connection testing
+
 > Docs docs update Fix removed unwanted apis
 
-- [ ] ...
+- [x] Initial UnAuth Layout development
+- [x] Initial HomePage page development
+- [x] `/api/auth/sign-up` api development
+- [x] Initial Sign Up page development
+- [x] `/api/auth/sign-in` api development
+- [x] Initial Sign In page development
+- [x] AuthContext development
+- [x] `access-token` refresh on reload/load of the web-app
+- [x] Working sign Out BTN
+- [x] Create an Protected page
+
+> Add added authentication
+
 - [ ] ...
 - [ ] ...
 - [ ] ...
@@ -68,6 +81,7 @@
 
 ### Pages
 
+- Home - A simple landing page with only a hero section
 - Auth pages (Sign In & Up)
 - Protected Pages
   - Main Tasks Pages

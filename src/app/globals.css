@@ -35,9 +35,21 @@
   }
 }
 
-@layer utilities {
+@layer components {
   .btn {
-    @apply text-btn-font px-8 py-2 font-medium rounded-md duration-150 hover:bg-accent hover:text-background active:scale-95;
+    @apply text-btn-font font-medium h-fit duration-150 hover:bg-accent hover:text-background active:scale-95;
+  }
+
+  .btn-base {
+    @apply w-fit px-8 py-2 rounded-md;
+  }
+
+  .btn-lg {
+    @apply w-fit px-12 py-2 rounded-lg;
+  }
+
+  .btn-full {
+    @apply w-full px-12 py-2 rounded-lg;
   }
 
   .btn-primary {
@@ -46,5 +58,12 @@
 
   .btn-secondary {
     @apply bg-secondary text-foreground;
+  }
+
+  .menu-link {
+    @apply text-menu-font font-medium duration-150 hover:text-accent hover:underline hover:underline-offset-2;
+  }
+  .menu-link.active {
+    @apply text-accent underline underline-offset-1 hover:underline-offset-2;
   }
 }
