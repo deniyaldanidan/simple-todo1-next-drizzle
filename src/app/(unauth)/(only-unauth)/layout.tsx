@@ -17,7 +17,9 @@ export default async function AuthLayout({
     <AuthContextProvider
       accessToken={refreshObj.success ? refreshObj.token : ""}
     >
-      <AuthGuard redirectPath={myRoutes.signIn.path}>{children}</AuthGuard>
+      <AuthGuard authState={false} redirectPath={myRoutes.appHome.path}>
+        {children}
+      </AuthGuard>
     </AuthContextProvider>
   );
 }

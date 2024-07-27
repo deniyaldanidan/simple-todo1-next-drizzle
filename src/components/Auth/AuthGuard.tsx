@@ -3,21 +3,37 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import useAuthContext from "@/contexts/Auth/useAuthContext";
-import myRoutes from "@/utils/myRoutes";
-import NotAuthedWarn from "./NotAuthedWarn";
-import AuthLoading from "./AuthLoading";
+import NotAuthedWarn from "@/components/Auth/NotAuthedWarn";
+import AuthLoading from "@/components/Auth/AuthLoading";
+import AuthedInfo from "@/components/Auth/AuthedInfo";
 
-export default function AuthGuard({ children }: { children: React.ReactNode }) {
+type props = {
+  children: React.ReactNode;
+  authState?: boolean;
+  redirectPath: string;
+};
+
+export default function AuthGuard({
+  children,
+  authState = true,
+  redirectPath,
+}: props) {
   const router = useRouter();
   const { authObj } = useAuthContext();
 
   useEffect(() => {
-    authObj.auth === false && router.replace(myRoutes.signIn.path);
-  }, [authObj, router]);
+    authObj.auth === !authState && router.replace(redirectPath);
+  }, [authObj, router, authState, redirectPath]);
 
   if (authObj.auth === "loading") {
     return <AuthLoading />;
   }
 
-  return authObj.auth === true ? <>{children}</> : <NotAuthedWarn />;
+  return authObj.auth === authState ? (
+    <>{children}</>
+  ) : authState === true ? (
+    <NotAuthedWarn />
+  ) : (
+    <AuthedInfo />
+  );
 }

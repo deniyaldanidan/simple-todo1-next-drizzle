@@ -33,6 +33,10 @@
 
 > Add added authentication
 
+- [x] FIX THE DYNAMIC SERVER USAGE PROBLEM
+
+> Fix fixed dynamic server usage error
+
 - [ ] ...
 - [ ] ...
 - [ ] ...
