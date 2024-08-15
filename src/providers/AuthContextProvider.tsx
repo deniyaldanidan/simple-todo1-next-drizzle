@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import { AuthContext, AuthObj } from "@/contexts/Auth/AuthContext";
 import validator from "validator";
 import { jwtDecode } from "jwt-decode";
+import { AuthContext, AuthObj } from "@/contexts/Auth/AuthContext";
 import { jwtPayloadParser } from "@/utils/zod-valids";
 
 export default function AuthContextProvider({

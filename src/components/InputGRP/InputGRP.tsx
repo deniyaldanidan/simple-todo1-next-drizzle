@@ -1,35 +1,61 @@
 import { ChangeEventHandler, HTMLInputTypeAttribute } from "react";
 
 type props = {
-  type: HTMLInputTypeAttribute;
+  type?: HTMLInputTypeAttribute;
   label: string;
   inputId: string;
   errorMsg: string | string[];
   placeholder: string;
   value: string | number;
   onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  textArea?: true;
+  textAreaRows?: number;
+  min?: string;
 };
 
-export default function InputGRP(props: props) {
+export default function InputGRP({
+  inputId,
+  label,
+  type,
+  placeholder,
+  errorMsg,
+  onChange,
+  textArea,
+  value,
+  textAreaRows,
+  min,
+}: props) {
   return (
     <div className="w-full flex flex-col gap-y-2">
-      <label htmlFor={props.inputId} className="text-xl font-semibold">
-        {props.label}
+      <label htmlFor={inputId} className="text-xl font-semibold">
+        {label}
       </label>
-      <input
-        type={props.type}
-        id={props.inputId}
-        className="px-2 py-1.5 text-lg text-black font-medium rounded-md bg-gray-300 outline-none placeholder:text-gray-900 focus:bg-gray-100"
-        placeholder={props.placeholder}
-        value={props.value}
-        onChange={props.onChange}
-      />
+      {textArea === true ? (
+        <textarea
+          id={inputId}
+          className="inp-base-classes"
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          rows={textAreaRows}
+        ></textarea>
+      ) : (
+        <input
+          type={type}
+          id={inputId}
+          className="inp-base-classes"
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          min={min}
+        />
+      )}
 
-      {typeof props.errorMsg === "string" ? (
-        <p className="text-base text-danger -mt-1">{props.errorMsg}</p>
+      {typeof errorMsg === "string" ? (
+        <p className="text-base text-danger -mt-1">{errorMsg}</p>
       ) : (
         <ul className="flex flex-col -mt-1">
-          {props.errorMsg.map((err, i) => (
+          {errorMsg.map((err, i) => (
             <li key={i} className="list-disc list-inside text-base text-danger">
               {err}
             </li>

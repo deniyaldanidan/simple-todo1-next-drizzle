@@ -37,7 +37,28 @@
 
 > Fix fixed dynamic server usage error
 
-- [ ] ...
+- [x] SideNav development
+- [x] Add new project
+- [x] Have single AuthContextProvider and have it in RootLayout & make all routes dynamic.
+- [x] Display project lists in side-nav
+- [x] View Project page
+- [x] add a `add-task` fn in project-page
+- [x] List out all tasks on project-page
+- [x] Solve default timestamp's timezone bug
+- [x] Delete tasks
+- [x] Edit tasks
+- [x] View/Edit Project Note
+- [x] View/Edit Task Note
+- [x] Edit projects
+- [x] Archive projects
+- [x] Today
+- [x] Delete archived projects
+- [x] Final code review
+- [x] Build locally and test for errors/warns
+- [x] Update schema info in readme
+
+> Add added projects/tasks management
+
 - [ ] ...
 - [ ] ...
 
@@ -59,29 +80,29 @@
 
 #### Projects
 
-| Column      |   Type   | Nullable |         Extra |
-| :---------- | :------: | :------: | ------------: |
-| id          |   Int    |    No    |   Primary Key |
-| Name        |  String  |    No    |               |
-| Description |  String  |   YES    |               |
-| Note        |   Text   |   YES    |               |
-| ColorCode   |  String  |    No    |               |
-| Archived    | Boolean  |    NO    |  Default = NO |
-| createdAt   | Datetime |    No    | Default=Now() |
-| archivedAt  | Datetime |   Yes    |               |
-| userId      |   INT    |    NO    |   Foreign Key |
+| Column      |   Type   | Nullable |                  Extra |
+| :---------- | :------: | :------: | ---------------------: |
+| id          |   Int    |    No    |            Primary Key |
+| Name        |  String  |    No    |                        |
+| Description |  String  |   YES    |                        |
+| Note        |   Text   |   YES    |                        |
+| ColorCode   |  String  |    No    |                        |
+| Archived    | Boolean  |    NO    |           Default = NO |
+| createdAt   |   INT    |    No    | Default=UNIX_TIMESTAMP |
+| archivedAt  | Datetime |   Yes    |                        |
+| userId      |   INT    |    NO    |            Foreign Key |
 
 #### Tasks
 
-| Column    |   Type   | Nullable |           Extra |
-| :-------- | :------: | :------: | --------------: |
-| id        |   Int    |    No    |     Primary Key |
-| Name      |  String  |    No    |                 |
-| Note      |   Text   |   Yes    |                 |
-| Done      | Boolean  |    NO    | Default = False |
-| createdAt | Datetime |    No    |   Default=Now() |
-| Due       | Datetime |   YES    |                 |
-| projectId |   int    |    No    |     Foreign Key |
+| Column    |   Type   | Nullable |                  Extra |
+| :-------- | :------: | :------: | ---------------------: |
+| id        |   Int    |    No    |            Primary Key |
+| Name      |  String  |    No    |                        |
+| Note      |   Text   |   Yes    |                        |
+| Done      | Boolean  |    NO    |        Default = False |
+| createdAt |   INT    |    No    | Default=UNIX_TIMESTAMP |
+| Due       | Datetime |   YES    |                        |
+| projectId |   int    |    No    |            Foreign Key |
 
 ### Pages
 

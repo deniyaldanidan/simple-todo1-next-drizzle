@@ -1,7 +1,88 @@
+"use client";
+
+import TaskBar from "@/components/Projects/TaskBar";
+import LoadingInfo from "@/components/utils/LoadingInfo";
+import useAuthContext from "@/contexts/Auth/useAuthContext";
+import queryKeys from "@/utils/query-keys";
+import getToday from "@/utils/queryfns/getToday";
+import { useQuery } from "@tanstack/react-query";
+import { isPast, isToday } from "date-fns";
+import { useEffect, useMemo } from "react";
+
 export default function Page() {
+  const { authObj } = useAuthContext();
+  const { isSuccess, data, isLoading } = useQuery({
+    queryKey: queryKeys.today,
+    queryFn: () => getToday(authObj.auth === true ? authObj.accessToken : ""),
+    enabled: authObj.auth === true,
+  });
+
+  // Calculate Completed & Uncompleted tasks here & render it using the TaskBar - Component
+  const { completedTasks, unCompletedTasks } = useMemo(() => {
+    if (!isSuccess) {
+      return { completedTasks: [], unCompletedTasks: [] };
+    }
+    const completedTasks = data.tasks.filter((tsk) => tsk.taskInfo.done);
+    const unCompletedTasks = data.tasks.filter((tsk) => !tsk.taskInfo.done);
+    return { completedTasks, unCompletedTasks };
+  }, [data, isSuccess]);
+
+  if (isLoading) {
+    return <LoadingInfo />;
+  }
+
   return (
-    <section className="min-h-screen h-fit flex flex-col items-center justify-center">
-      <h2 className="text-3xl font-bold">This page is protected</h2>
-    </section>
+    <div className="min-h-screen h-fit px-page-margin-x py-12">
+      <section className="pb-5 mb-7 border-b-2 border-b-terBackground">
+        <h2 className="text-secForeground text-section-title-font">
+          Today&apos;s priorities
+        </h2>
+        <h3 className="text-dimForeground text-section-subtitle-font mt-4">
+          View all tasks scheduled for today, including any that are past due
+        </h3>
+      </section>
+      <section className="max-w-[1150px] mx-auto">
+        <h3 className="text-2xl text-secForeground font-semibold mb-4">
+          Tasks
+        </h3>
+        {unCompletedTasks.length ? (
+          <div className="flex flex-col gap-y-5">
+            {unCompletedTasks.map((tsk) => (
+              <TaskBar
+                key={tsk.taskInfo.id}
+                taskInfo={tsk.taskInfo}
+                projectId={tsk.projectId}
+                projectName={tsk.projectName}
+                colorCode={tsk.colorCode}
+              />
+            ))}
+          </div>
+        ) : (
+          <div>No tasks here yet</div>
+        )}
+      </section>
+      {!completedTasks.length ? (
+        ""
+      ) : (
+        <section className="max-w-[1150px] mx-auto">
+          <details>
+            <summary className="mt-10 text-xl text-dimForeground font-semibold">
+              Completed tasks
+            </summary>
+            <div className="flex flex-col gap-y-5 mt-4 pl-3">
+              {completedTasks.map((tsk) => (
+                <TaskBar
+                  key={tsk.taskInfo.id}
+                  taskInfo={tsk.taskInfo}
+                  projectId={tsk.projectId}
+                  projectName={tsk.projectName}
+                  colorCode={tsk.colorCode}
+                />
+              ))}
+            </div>
+          </details>
+        </section>
+      )}
+    </div>
   );
 }

@@ -1,25 +1,15 @@
 import React from "react";
-import refresh from "@/actions/refresh";
 import AuthGuard from "@/components/Auth/AuthGuard";
-import AuthContextProvider from "@/contexts/Auth/AuthContextProvider";
 import myRoutes from "@/utils/myRoutes";
 
-export default async function AuthLayout({
+export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const refreshObj = await refresh();
-  if (!refreshObj.success && refreshObj.error) {
-    throw new Error(refreshObj.errMsg);
-  }
   return (
-    <AuthContextProvider
-      accessToken={refreshObj.success ? refreshObj.token : ""}
-    >
-      <AuthGuard redirectPath={myRoutes.signIn.path}>{children}</AuthGuard>
-    </AuthContextProvider>
+    <AuthGuard authState={true} redirectPath={myRoutes.signIn.path}>
+      {children}
+    </AuthGuard>
   );
 }
-
-export const dynamic = "force-dynamic";

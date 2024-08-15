@@ -21,6 +21,33 @@ const myRoutes = {
   appHome: {
     path: "/web",
   },
+  todayApi: {
+    path: "/api/projects/today",
+  },
+  archives: {
+    path: "/web/archives",
+  },
+  archivesListApi: {
+    path: "/api/projects/archives/list",
+  },
+  addProject: {
+    path: "/web/projects/add",
+  },
+  projectListApi: {
+    path: "/api/projects/list",
+  },
+  getProjectApi: {
+    path: (projectId: number) => `/api/projects/get/${projectId}`,
+  },
+  getProjectBasicApi: {
+    path: (projectId: number) => `/api/projects/get/basic/${projectId}`,
+  },
+  viewProject: {
+    path: (projectId: number) => `/web/projects/view/${projectId}`,
+  },
+  editProject: {
+    path: (projectId: number) => `/web/projects/edit/${projectId}`,
+  },
   userInfo: {
     path: "/user",
   },

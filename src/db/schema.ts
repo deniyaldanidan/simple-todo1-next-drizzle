@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import {
   int,
   mysqlTable,
@@ -24,7 +25,9 @@ export const projects = mysqlTable("projects", {
   note: text("note"),
   colorCode: varchar("colorCode", { length: 25 }).notNull(),
   archived: boolean("archived").default(false).notNull(),
-  createdAt: timestamp("createdAt", { mode: "date" }).notNull().defaultNow(),
+  createdAt: int("createdAt")
+    .notNull()
+    .default(sql`(unix_timestamp())`),
   archivedAt: timestamp("archivedAt", { mode: "date" }),
   userId: int("userId")
     .notNull()
@@ -36,7 +39,9 @@ export const tasks = mysqlTable("tasks", {
   name: varchar("name", { length: 1000 }).notNull(),
   note: text("note"),
   done: boolean("done").notNull().default(false),
-  createdAt: timestamp("createdAt", { mode: "date" }).defaultNow().notNull(),
+  createdAt: int("createdAt")
+    .notNull()
+    .default(sql`(unix_timestamp())`),
   due: timestamp("due", { mode: "date" }),
   projectId: int("projectId")
     .notNull()

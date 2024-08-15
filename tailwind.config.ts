@@ -14,6 +14,7 @@ const config: Config = {
       colors: {
         foreground: "var(--foreground)",
         secForeground: "var(--sec-foreground)",
+        dimForeground: "var(--dim-foreground)",
         background: "var(--background)",
         secBackground: "var(--sec-background)",
         secHighBackground: "var(--sec-high-background)",
@@ -23,6 +24,8 @@ const config: Config = {
         secondary: "var(--secondary)",
         accent: "var(--accent)",
         danger: "#ef4444",
+        warn: "#fdba74",
+        success: "#86efac",
       },
       fontSize: {
         "logo-font": "var(--logo-font)",

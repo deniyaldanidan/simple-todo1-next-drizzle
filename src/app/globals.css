@@ -2,9 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes fade-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    display: block;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    display: none;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes backdrop-fade-in {
+  0% {
+    background-color: #0000;
+    backdrop-filter: blur(0px);
+  }
+
+  100% {
+    background-color: #0004;
+    backdrop-filter: blur(4px);
+  }
+}
+
 :root {
   --foreground: #e9ebf7;
   --sec-foreground: #dfe0e8;
+  --dim-foreground: #a0a6b6;
   --background: #04050a;
   --sec-background: #0c0c14;
   --sec-high-background: #0f1221;
@@ -37,7 +78,15 @@
 
 @layer components {
   .btn {
-    @apply text-btn-font font-medium h-fit duration-150 hover:bg-accent hover:text-background active:scale-95;
+    @apply text-btn-font font-semibold h-fit duration-150 hover:bg-accent hover:text-background active:scale-95 disabled:bg-gray-600 disabled:text-white disabled:cursor-not-allowed;
+  }
+
+  .btn-xs {
+    @apply w-fit px-4 py-1.5 rounded;
+  }
+
+  .btn-sm {
+    @apply w-fit px-5 py-1.5 rounded-md;
   }
 
   .btn-base {
@@ -48,8 +97,16 @@
     @apply w-fit px-12 py-2 rounded-lg;
   }
 
+  .btn-xl {
+    @apply w-fit px-14 py-2 rounded-lg;
+  }
+
   .btn-full {
     @apply w-full px-12 py-2 rounded-lg;
+  }
+
+  .btn-flex {
+    @apply flex gap-x-1 items-center;
   }
 
   .btn-primary {
@@ -60,10 +117,48 @@
     @apply bg-secondary text-foreground;
   }
 
+  .btn-danger {
+    @apply bg-danger text-black;
+  }
+
+  .base-styled-link {
+    @apply font-medium duration-150 hover:text-accent;
+  }
+
   .menu-link {
     @apply text-menu-font font-medium duration-150 hover:text-accent hover:underline hover:underline-offset-2;
   }
   .menu-link.active {
     @apply text-accent underline underline-offset-1 hover:underline-offset-2;
+  }
+
+  .side-nav-link {
+    @apply pl-3.5 pr-5 py-2.5 font-medium capitalize duration-150 hover:bg-background;
+  }
+  .inp-base-classes {
+    @apply px-2 py-1.5 text-lg text-black font-semibold rounded-md bg-gray-300 outline-none placeholder:text-gray-600 focus:bg-gray-100;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .my-dialog {
+    animation: fade-out 0.4s ease-in-out;
+  }
+
+  .my-dialog[open] {
+    animation: fade-in 0.4s ease-in-out;
+  }
+
+  .my-dialog[open]::backdrop {
+    animation: backdrop-fade-in 0.4s ease-in-out forwards;
   }
 }
