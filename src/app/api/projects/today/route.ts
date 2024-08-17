@@ -1,17 +1,24 @@
 import db from "@/db/db";
 import { projects, tasks } from "@/db/schema";
 import verifyAccessRouter from "@/utils/verifyAccessRouter";
-import { isPast, isToday } from "date-fns";
 import { and, eq, isNotNull } from "drizzle-orm";
-import { NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { ZodError } from "zod";
+import { toZonedTime } from "date-fns-tz";
+import { validTimezoneParser } from "@/utils/zod-valids";
+import { isBefore, isSameDay } from "date-fns";
 
-export async function GET(req: Request) {
+export async function GET(req: NextRequest) {
   try {
     const reqVerification = verifyAccessRouter();
     if (!reqVerification.success) {
       return NextResponse.json({ error: "Failed auth" }, { status: 401 });
     }
+    const searchParams = req.nextUrl.searchParams;
+    const userTimeZone = validTimezoneParser.parse(
+      searchParams.get("timeZone")
+    );
+
     const result = await db
       .select({
         taskInfo: {
@@ -38,11 +45,16 @@ export async function GET(req: Request) {
       .leftJoin(tasks, eq(tasks.projectId, projects.id));
 
     const filteredTasks = result.filter((tsk) => {
-      const myDue = new Date(tsk.taskInfo?.due ?? "");
-      if (isToday(myDue)) {
+      const today = toZonedTime(new Date(), userTimeZone);
+      const myDue = toZonedTime(
+        new Date(tsk.taskInfo?.due ?? ""),
+        userTimeZone
+      );
+
+      if (isSameDay(today, myDue)) {
         return true;
       }
-      if (isPast(myDue) && !tsk.taskInfo?.done) {
+      if (isBefore(myDue, today) && !tsk.taskInfo?.done) {
         return true;
       }
       return false;

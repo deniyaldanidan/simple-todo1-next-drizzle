@@ -1,5 +1,6 @@
 import { z } from "zod";
 import validator from "validator";
+import { toZonedTime } from "date-fns-tz";
 
 const nameParser = z
   .string()
@@ -149,3 +150,12 @@ export const editTaskNoteParser = z.object({
   projectId: intParser,
   taskId: intParser,
 });
+
+export const validTimezoneParser = z
+  .string()
+  .transform((val) => {
+    const date = new Date();
+    const convertedDate = toZonedTime(date, val);
+    return isNaN(convertedDate.getDate()) ? "UTC" : val;
+  })
+  .catch("UTC");

@@ -59,6 +59,8 @@
 
 > Add added projects/tasks management
 
+> Fix timezone problem in today-api
+
 - [ ] ...
 - [ ] ...
 
