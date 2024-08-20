@@ -2,11 +2,9 @@
 
 import db from "@/db/db";
 import { projects } from "@/db/schema";
-import myRoutes from "@/utils/myRoutes";
 import verifyAccess from "@/utils/verifyAccess";
 import { intParser } from "@/utils/zod-valids";
 import { and, eq } from "drizzle-orm";
-import { redirect } from "next/navigation";
 import { ZodError } from "zod";
 
 type returnType =
@@ -27,7 +25,7 @@ export default async function deleteProject(
     // * verifying auth
     const auth = verifyAccess(token);
     if (!auth.success) {
-      return redirect(myRoutes.signIn.path);
+      return { success: false, error: "Authentication failed" };
     }
     const parsedProjectId = intParser.parse(projectId);
     // * delete the project

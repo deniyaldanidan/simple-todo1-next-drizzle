@@ -51,6 +51,18 @@ const myRoutes = {
   userInfo: {
     path: "/user",
   },
+  userInfoAPI: {
+    path: "/api/user/info",
+  },
+  editUserInfo: {
+    path: "/user/edit",
+  },
+  changePassword: {
+    path: "/user/change-password",
+  },
+  deleteAccount: {
+    path: "/user/delete-account",
+  },
 };
 
 export default myRoutes;

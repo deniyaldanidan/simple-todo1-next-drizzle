@@ -2,13 +2,11 @@
 
 import db from "@/db/db";
 import { projects } from "@/db/schema";
-import myRoutes from "@/utils/myRoutes";
 import verifyAccess from "@/utils/verifyAccess";
 import {
   createProjectParser,
   createProjectRouteParser,
 } from "@/utils/zod-valids";
-import { redirect } from "next/navigation";
 import { z, ZodError } from "zod";
 
 type returnType =
@@ -29,7 +27,7 @@ export default async function addProject(
     // * verifying auth
     const auth = verifyAccess(token);
     if (!auth.success) {
-      return redirect(myRoutes.signIn.path);
+      return { success: false, error: "Authentication failed" };
     }
     const parsedData = createProjectRouteParser.parse(data);
     // * save it to db

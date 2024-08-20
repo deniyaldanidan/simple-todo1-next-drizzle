@@ -2,11 +2,9 @@
 
 import db from "@/db/db";
 import { projects } from "@/db/schema";
-import myRoutes from "@/utils/myRoutes";
 import verifyAccess from "@/utils/verifyAccess";
 import { editProjectRouteParser } from "@/utils/zod-valids";
 import { and, eq } from "drizzle-orm";
-import { redirect } from "next/navigation";
 import { z, ZodError } from "zod";
 
 type returnType =
@@ -27,7 +25,7 @@ export default async function editProject(
     // * verifying auth
     const auth = verifyAccess(token);
     if (!auth.success) {
-      return redirect(myRoutes.signIn.path);
+      return { success: false, error: "Authentication failed" };
     }
     const parsedData = editProjectRouteParser.parse(data);
     // * update the project

@@ -67,7 +67,7 @@ export default function Page() {
         <section className="max-w-[1150px] mx-auto">
           <details>
             <summary className="mt-10 text-xl text-dimForeground font-semibold">
-              Completed tasks
+              Completed tasks &#40;{completedTasks.length}&#41;
             </summary>
             <div className="flex flex-col gap-y-5 mt-4 pl-3">
               {completedTasks.map((tsk) => (

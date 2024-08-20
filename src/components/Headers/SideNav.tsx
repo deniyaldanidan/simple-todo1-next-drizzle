@@ -5,7 +5,7 @@ import SideNavProjectsList from "@/components/Headers/SideNavProjectsList";
 
 export default function SideNav() {
   return (
-    <nav className="min-w-[175px] w-fit max-w-[21ch] min-h-fit h-screen rounded-ee-xl text-lg overflow-y-scroll bg-dimBackground flex flex-col pt-5 pb-10 gap-y-1 no-scrollbar">
+    <nav className="side-nav-layout">
       <Link href={myRoutes.appHome.path} className="side-nav-link">
         Today
       </Link>

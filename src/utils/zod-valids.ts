@@ -17,6 +17,15 @@ const userNameParser = z
     "only chars a-zA-Z0-9_- are allowed"
   );
 
+export const passwordParser = z
+  .string()
+  .min(8, "should have atleast 8 chars")
+  .max(30, "exceed limit of 30 chars")
+  .refine(
+    (val) => validator.isStrongPassword(val, { minLength: 8 }),
+    "password is too weak"
+  );
+
 export const intParser = z
   .number()
   .int()
@@ -39,14 +48,19 @@ export const signUpPageinputsParser = z.object({
   lastName: nameParser,
   userName: userNameParser,
   email: z.string().email(),
-  password: z
-    .string()
-    .max(30, "exceed limit of 30 chars")
-    .refine(
-      (val) => validator.isStrongPassword(val, { minLength: 8 }),
-      "password is too weak"
-    ),
+  password: passwordParser,
 });
+
+export const editUserInfoPageParser = signUpPageinputsParser.pick({
+  firstname: true,
+  lastName: true,
+  userName: true,
+  email: true,
+});
+
+export type EditUserInfoPageInpsError = z.inferFlattenedErrors<
+  typeof editUserInfoPageParser
+>["fieldErrors"];
 
 export type SignUpPageinputsError = z.inferFlattenedErrors<
   typeof signUpPageinputsParser

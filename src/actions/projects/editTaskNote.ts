@@ -2,11 +2,9 @@
 
 import db from "@/db/db";
 import { projects, tasks } from "@/db/schema";
-import myRoutes from "@/utils/myRoutes";
 import verifyAccess from "@/utils/verifyAccess";
 import { editTaskNoteParser } from "@/utils/zod-valids";
 import { and, eq } from "drizzle-orm";
-import { redirect } from "next/navigation";
 import { z, ZodError } from "zod";
 
 type returnType =
@@ -28,7 +26,7 @@ export default async function editTaskNote(
     // * verifying auth
     const auth = verifyAccess(accessToken);
     if (!auth.success) {
-      return redirect(myRoutes.signIn.path);
+      return { success: false, error: "Authentication failed" };
     }
 
     // * validate the data

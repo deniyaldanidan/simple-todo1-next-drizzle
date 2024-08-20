@@ -61,8 +61,19 @@
 
 > Fix timezone problem in today-api
 
-- [ ] ...
-- [ ] ...
+- [x] User Info page
+- [x] Change User info page
+- [x] Change password page
+- [x] Delete User functionality
+
+- [x] some actions directing user to signIn page on Auth failure remove it just send Authentication failed error
+- [x] Add count in view-project/today pages > completed tasks
+
+> Add added user management
+
+- [ ] Responsivess
+- [ ] SEO optimization
+- [ ] Finale testing
 
 ## Notes:
 

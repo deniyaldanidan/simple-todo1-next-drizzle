@@ -132,6 +132,10 @@
     @apply text-accent underline underline-offset-1 hover:underline-offset-2;
   }
 
+  .side-nav-layout {
+    @apply min-w-[175px] w-fit max-w-[21ch] min-h-fit h-screen rounded-ee-xl text-lg overflow-y-scroll bg-dimBackground flex flex-col pt-5 pb-10 gap-y-1 no-scrollbar;
+  }
+
   .side-nav-link {
     @apply pl-3.5 pr-5 py-2.5 font-medium capitalize duration-150 hover:bg-background;
   }

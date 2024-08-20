@@ -1,4 +1,5 @@
 const queryKeys = {
+  userInfo: ["user", "info"],
   projectList: ["project", "list"],
   today: ["project", "today"],
   projectView: (id: number | string) =>
