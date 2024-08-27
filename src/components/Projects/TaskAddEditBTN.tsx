@@ -30,16 +30,19 @@ export default function TaskAddEditBTN(props: props) {
         {props.edit ? <EditIcon /> : <AddIcon />}
         <span>{props.btnLabel}</span>
       </button>
-      <dialog ref={dialogRef} className="my-dialog">
-        <section className="p-5 min-w-64 w-[95vw] max-w-[550px] h-fit bg-dimBackground">
-          <div className="flex items-center justify-between gap-x-3">
-            <h3 className="text-base text-dimForeground font-semibold flex gap-x-1.5 items-center">
+      <dialog
+        ref={dialogRef}
+        className="my-dialog bg-transparent tablet-sm:w-full mobile-sm:mx-auto mobile-sm:min-w-[95vw]"
+      >
+        <section className="p-5 w-[95vw] max-w-[550px] h-fit bg-dimBackground tablet-sm:w-full tablet-sm:mx-auto mobile-sm:px-3">
+          <div className="flex items-center justify-between gap-x-3 mobile-sm:flex-col-reverse mobile-sm:gap-y-3">
+            <h3 className="text-base text-dimForeground font-semibold flex flex-wrap gap-y-2 gap-x-1.5 items-center">
               <span>{props.windowLabel}</span>
               <RightIcon />
               <span className="capitalize">{props.projectName}</span>
             </h3>
             <button
-              className="btn btn-primary btn-sm"
+              className="btn btn-primary btn-sm tablet-sm:btn-xs mobile-sm:self-end"
               onClick={() => dialogRef.current?.close()}
             >
               Close

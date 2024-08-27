@@ -1,5 +1,5 @@
 import AuthedHeader from "@/components/Headers/AuthedHeader";
-import SideUserNav from "@/components/Headers/SideUserNav";
+import UserNav from "@/components/Headers/UserNav/UserNav";
 import React from "react";
 
 export default function layout({ children }: { children: React.ReactNode }) {
@@ -7,7 +7,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
     <>
       <AuthedHeader />
       <div className="flex h-fit">
-        <SideUserNav />
+        <UserNav />
         <main className="w-full">{children}</main>
       </div>
     </>

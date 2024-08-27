@@ -97,7 +97,7 @@ export default function TaskForm(props: props) {
   return (
     <form
       onSubmit={onSubmit}
-      className="text-foreground flex flex-col gap-y-7 mt-5"
+      className="text-foreground flex flex-col gap-y-7 mt-5 w-full"
     >
       <p className="-mb-5 -mt-2.5 text-base text-center text-danger font-semibold">
         {rootErr}

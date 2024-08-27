@@ -63,6 +63,9 @@ const myRoutes = {
   deleteAccount: {
     path: "/user/delete-account",
   },
+  developerURL: {
+    url: "https://danidevstudio.com/",
+  },
 };
 
 export default myRoutes;

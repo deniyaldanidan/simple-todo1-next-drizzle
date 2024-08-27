@@ -69,17 +69,17 @@ export default function SignUpPage() {
   };
 
   return (
-    <section className="px-page-margin-x py-14 flex justify-center items-center gap-x-12">
+    <section className="px-page-margin-x py-14 flex justify-center items-center gap-x-8 laptop:flex-col laptop:gap-y-7">
       <Image
         src={signUpImg}
         alt="Welcome to TSKR"
-        className="w-full max-w-[550px] h-full"
+        className="w-full max-w-[475px] h-auto laptop:max-w-[325px]"
         unoptimized
         priority
       />
       <form
         onSubmit={submitFN}
-        className="w-full max-w-[700px] flex flex-col gap-y-10"
+        className="w-full max-w-[750px] flex flex-col gap-y-7"
       >
         <div>
           <h2 className="text-section-title-font font-semibold text-center">
@@ -89,7 +89,7 @@ export default function SignUpPage() {
             {rootErr}
           </p>
         </div>
-        <div className="flex gap-x-10">
+        <div className="flex gap-x-8 tablet:flex-col tablet:gap-y-7">
           <InputGRP
             label="First Name"
             inputId="first-name-signup-input"
@@ -109,7 +109,7 @@ export default function SignUpPage() {
             onChange={(e) => setLastnameVal(e.target.value)}
           />
         </div>
-        <div className="flex gap-x-10">
+        <div className="flex gap-x-8 tablet:flex-col tablet:gap-y-7">
           <InputGRP
             label="Username"
             inputId="user-name-signup-input"
@@ -129,7 +129,7 @@ export default function SignUpPage() {
             onChange={(e) => setEmailVal(e.target.value)}
           />
         </div>
-        <div className="flex gap-x-10">
+        <div className="flex gap-x-8 tablet:flex-col tablet:gap-y-7">
           <InputGRP
             label="Password"
             inputId="password-signup-input"
@@ -156,7 +156,7 @@ export default function SignUpPage() {
           Already have an account?{" "}
           <Link
             href={myRoutes.signIn.path}
-            className="font-bold underline underline-offset-2 hover:text-accent"
+            className="text-nowrap font-bold underline underline-offset-2 hover:text-accent"
           >
             Sign In
           </Link>

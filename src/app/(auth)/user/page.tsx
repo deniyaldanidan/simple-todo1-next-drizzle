@@ -36,35 +36,35 @@ export default function UserPage() {
       <section className="max-w-[750px] w-full flex flex-col gap-y-10">
         {isSuccess ? (
           <>
-            <div className="flex items-center gap-x-4 w-full">
-              <span className="w-full text-xl text-secForeground capitalize font-bold">
+            <div className="flex items-center gap-x-4 w-full mobile-lg:gap-x-3 mobile-md:gap-x-2.5">
+              <span className="w-full text-xl text-secForeground capitalize font-bold tablet-sm:text-lg mobile-sm:text-base">
                 Firstname
               </span>
-              <span className="text-xl font-medium w-full text-foreground capitalize">
+              <span className="text-xl font-medium w-full text-foreground capitalize tablet-sm:text-lg mobile-sm:text-base">
                 {data.firstname}
               </span>
             </div>
-            <div className="flex items-center gap-x-4 w-full">
-              <span className="w-full text-xl text-secForeground capitalize font-bold">
+            <div className="flex items-center gap-x-4 w-full mobile-lg:gap-x-3 mobile-md:gap-x-2.5">
+              <span className="w-full text-xl text-secForeground capitalize font-bold tablet-sm:text-lg mobile-sm:text-base">
                 Lastname
               </span>
-              <span className="text-xl font-medium w-full text-foreground capitalize">
+              <span className="text-xl font-medium w-full text-foreground capitalize tablet-sm:text-lg mobile-sm:text-base">
                 {data.lastname}
               </span>
             </div>
-            <div className="flex items-center gap-x-4 w-full">
-              <span className="w-full text-xl text-secForeground capitalize font-bold">
+            <div className="flex items-center gap-x-4 w-full mobile-lg:gap-x-3 mobile-md:gap-x-2.5">
+              <span className="w-full text-xl text-secForeground capitalize font-bold tablet-sm:text-lg mobile-sm:text-base">
                 Username
               </span>
-              <span className="text-xl font-medium w-full text-foreground">
+              <span className="text-xl font-medium w-full text-foreground tablet-sm:text-lg mobile-sm:text-base">
                 {data.username}
               </span>
             </div>
-            <div className="flex items-center gap-x-4 w-full">
-              <span className="w-full text-xl text-secForeground capitalize font-bold">
+            <div className="flex items-center gap-x-4 w-full mobile-lg:gap-x-3 mobile-md:gap-x-2.5">
+              <span className="w-full text-xl text-secForeground capitalize font-bold tablet-sm:text-lg mobile-sm:text-base">
                 Email
               </span>
-              <span className="text-xl font-medium w-full text-foreground">
+              <span className="text-xl font-medium w-full text-foreground tablet-sm:text-lg mobile-sm:text-base">
                 {data.email}
               </span>
             </div>

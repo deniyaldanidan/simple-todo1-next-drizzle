@@ -8,6 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        laptop: { max: "1281px" },
+        "laptop-md": { max: "1125px" },
+        "laptop-sm": { max: "1024px" },
+        "tablet-xl": { max: "900px" },
+        "tablet-lg": { max: "800px" },
+        tablet: { max: "768px" },
+        "tablet-sm": { max: "640px" },
+        mobile: { max: "510px" },
+        "mobile-lg": { max: "425px" },
+        "mobile-md": { max: "375px" },
+        "mobile-sm": { max: "325px" },
+        "mobile-xs": { max: "299px" },
+      },
       spacing: {
         "page-margin-x": "var(--page-margin-x)",
       },

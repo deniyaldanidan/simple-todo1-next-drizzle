@@ -27,7 +27,10 @@ export default function InputGRP({
 }: props) {
   return (
     <div className="w-full flex flex-col gap-y-2">
-      <label htmlFor={inputId} className="text-xl font-semibold">
+      <label
+        htmlFor={inputId}
+        className="block w-fit text-xl font-semibold laptop-md:text-lg tablet:text-[1.1rem] tablet:leading-5 mobile-sm:text-[1.05rem]"
+      >
         {label}
       </label>
       {textArea === true ? (
@@ -52,11 +55,16 @@ export default function InputGRP({
       )}
 
       {typeof errorMsg === "string" ? (
-        <p className="text-base text-danger -mt-1">{errorMsg}</p>
+        <p className="text-base text-danger leading-6 -mt-1 tablet:text-[0.95rem] mobile-sm:text-[0.925rem]">
+          {errorMsg}
+        </p>
       ) : (
         <ul className="flex flex-col -mt-1">
           {errorMsg.map((err, i) => (
-            <li key={i} className="list-disc list-inside text-base text-danger">
+            <li
+              key={i}
+              className="list-disc list-inside text-base text-danger leading-6 tablet:text-[0.95rem] mobile-sm:text-[0.925rem]"
+            >
               {err}
             </li>
           ))}

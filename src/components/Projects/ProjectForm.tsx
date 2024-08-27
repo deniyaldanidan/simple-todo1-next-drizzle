@@ -153,18 +153,24 @@ export default function ProjectForm(props: props) {
         ) : (
           ""
         )}
-        <div className="flex gap-x-7 items-center w-fit">
-          <div className="text-xl font-bold">Color Code</div>
-          <div className="flex gap-x-5 items-center">
-            <div
-              style={{ backgroundColor: projectColorCode }}
-              className="w-5 h-5 rounded-full border-gray-50 border-[2px]"
-            ></div>
-            <p className="text-lg uppercase font-medium">{projectColorCode}</p>
+        <div className="flex gap-x-7 items-center w-fit mobile:gap-x-4">
+          <div className="block w-fit text-nowrap text-xl font-semibold laptop-md:text-lg tablet:text-[1.1rem] tablet:leading-5 mobile-sm:text-[1.05rem]">
+            Color Code:
+          </div>
+          <div className="flex flex-wrap gap-x-5 items-center mobile:gap-x-3 mobile-md:gap-2 mobile-md:justify-start">
+            <div className="flex items-center gap-x-1.5">
+              <div
+                style={{ backgroundColor: projectColorCode }}
+                className="w-5 h-5 rounded-full border-gray-50 border-[2px]"
+              ></div>
+              <p className="text-input-font uppercase font-medium">
+                {projectColorCode}
+              </p>
+            </div>
             <button
               type="button"
               onClick={() => setColorInpShow((prev) => !prev)}
-              className="btn btn-base btn-secondary ml-2.5 flex gap-x-1.5 items-center"
+              className="btn btn-base btn-secondary ml-2.5 flex gap-x-1.5 items-center mobile-lg:btn-sm mobile-md:btn-xs"
             >
               {colorInpShow ? (
                 <>
@@ -180,7 +186,7 @@ export default function ProjectForm(props: props) {
       </div>
       <button
         type="submit"
-        className="btn btn-xl btn-primary self-center"
+        className="btn btn-xl btn-primary self-center mobile-lg:btn-lg mobile-md:btn-base mobile-sm:btn-sm"
         disabled={props.isMutating}
       >
         {props.isMutating ? "..." : "Submit"}

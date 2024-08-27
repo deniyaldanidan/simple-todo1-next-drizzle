@@ -51,17 +51,17 @@ export default function SignInPage() {
 
   return (
     <section>
-      <section className="px-page-margin-x py-14 flex justify-center items-center gap-x-12">
+      <section className="px-page-margin-x py-14 flex justify-center items-center gap-x-12 laptop-sm:flex-col laptop-sm:gap-y-10">
         <Image
           src={signInImg}
           alt="Welcome back to TSKR"
-          className="w-full max-w-[550px] h-full"
+          className="w-full max-w-[475px] h-auto laptop-md:max-w-[400px] laptop-sm:max-w-[325px]"
           unoptimized
           priority
         />
         <form
           onSubmit={submitFN}
-          className="w-full max-w-[500px] flex flex-col gap-y-10"
+          className="w-full max-w-[500px] flex flex-col gap-y-8 laptop-sm:max-w-[525px]"
         >
           <div>
             <h2 className="text-section-title-font font-semibold text-center">
@@ -97,7 +97,7 @@ export default function SignInPage() {
             Don&apos;t have an account yet?{" "}
             <Link
               href={myRoutes.signUp.path}
-              className="font-bold underline underline-offset-2 hover:text-accent"
+              className="text-nowrap font-bold underline underline-offset-2 hover:text-accent"
             >
               Sign Up
             </Link>

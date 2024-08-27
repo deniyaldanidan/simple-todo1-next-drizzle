@@ -31,7 +31,7 @@ export default function ArchivesPage() {
           and inactive work.
         </h3>
       </section>
-      <section className="flex flex-wrap items-center gap-x-6 gap-y-7 max-w-[1300px] mx-auto">
+      <section className="flex flex-wrap items-center gap-x-6 gap-y-8 max-w-[1300px] mx-auto">
         {data.length ? (
           data.map((arch) => (
             <ArchivedCard key={arch.projectId} archProjInfo={arch} />

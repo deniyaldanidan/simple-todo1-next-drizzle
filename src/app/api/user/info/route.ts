@@ -37,3 +37,4 @@ export async function GET(req: Request) {
 }
 
 export const revalidate = false;
+export const dynamic = "force-dynamic";

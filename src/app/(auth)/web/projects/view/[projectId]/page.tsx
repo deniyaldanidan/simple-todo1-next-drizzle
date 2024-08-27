@@ -130,10 +130,10 @@ export default function Page({ params: { projectId } }: props) {
             className="w-5 h-5 block rounded-full border-2 border-gray-300"
           ></span>
         </h2>
-        <p className="text-section-subtitle-font font-medium text-secForeground">
+        <p className="text-section-subtitle-font font-medium">
           {data.project.desc}
         </p>
-        <div className="flex gap-x-1.5 text-secForeground font-semibold">
+        <div className="flex gap-x-1.5 text-section-subtitle-font text-secForeground font-semibold">
           <span>Created:</span>
           <time dateTime={new Date(data.project.createdAt * 1000).toString()}>
             {enhancedDateFNSFormat(
@@ -144,44 +144,48 @@ export default function Page({ params: { projectId } }: props) {
         </div>
         <div className="flex gap-x-6 items-baseline">
           <p className="uppercase text-dimForeground">ACTIONS:</p>
-          <ViewNoteComp
-            btnLabel="View Note"
-            className="base-styled-link text-blue-300 underline underline-offset-2"
-            note={data.project.note ?? ""}
-            projectName={data.project.name}
-            isPending={isMutatePending}
-            isError={isMutateErr}
-            isSuccess={isMutateSuccess}
-            data={mutateData}
-            mutateFN={mutate}
-            type="PROJ"
-            projectId={data.project.id}
-          />
-          <Link
-            href={myRoutes.editProject.path(data.project.id)}
-            className="base-styled-link text-warn underline underline-offset-2"
-          >
-            Edit Project
-          </Link>
-          <button
-            type="button"
-            className="base-styled-link text-danger underline underline-offset-2"
-            onClick={archiveThisProject}
-          >
-            Archive Project
-          </button>
+          <div className="flex flex-wrap gap-x-7 gap-y-5">
+            <ViewNoteComp
+              btnLabel="View Note"
+              className="base-styled-link text-blue-300 text-nowrap underline underline-offset-2"
+              note={data.project.note ?? ""}
+              projectName={data.project.name}
+              isPending={isMutatePending}
+              isError={isMutateErr}
+              isSuccess={isMutateSuccess}
+              data={mutateData}
+              mutateFN={mutate}
+              type="PROJ"
+              projectId={data.project.id}
+            />
+            <Link
+              href={myRoutes.editProject.path(data.project.id)}
+              className="base-styled-link text-warn text-nowrap underline underline-offset-2"
+            >
+              Edit Project
+            </Link>
+            <button
+              type="button"
+              className="base-styled-link text-danger text-nowrap underline underline-offset-2"
+              onClick={archiveThisProject}
+            >
+              Archive Project
+            </button>
+          </div>
         </div>
       </section>
       <section className="max-w-[1150px] mx-auto">
         {/* Tasks section head */}
         <div className="flex items-center gap-x-7 justify-between mb-5">
-          <h3 className="text-2xl text-secForeground font-semibold">Tasks</h3>
+          <h3 className="text-xl text-secForeground font-semibold mobile:text-lg">
+            Tasks
+          </h3>
           <TaskAddEditBTN
             projectId={data.project.id}
             projectName={data.project.name}
             windowLabel="Add Task"
             btnLabel="Add Task"
-            btnClasses="btn btn-sm btn-primary btn-flex"
+            btnClasses="btn btn-sm btn-primary btn-flex mobile-md:btn-xs"
             edit={false}
           />
         </div>
@@ -206,7 +210,7 @@ export default function Page({ params: { projectId } }: props) {
       ) : (
         <section className="max-w-[1150px] mx-auto">
           <details>
-            <summary className="mt-10 text-xl text-dimForeground font-semibold">
+            <summary className="mt-10 text-xl text-dimForeground font-semibold mobile:text-lg">
               Completed tasks &#40;{completedTasks.length}&#41;
             </summary>
             <div className="flex flex-col gap-y-5 mt-4 pl-3">

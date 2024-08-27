@@ -116,10 +116,12 @@ export default function TaskBar({
     <div
       className={clsx(
         "flex items-start justify-between px-5 py-3.5 rounded-lg",
-        taskInfo.done ? "bg-dimBackground" : "bg-terBackground"
+        taskInfo.done ? "bg-dimBackground" : "bg-terBackground",
+        "tablet-sm:flex-col tablet-sm:gap-y-5"
       )}
     >
-      <div className="flex flex-col gap-y-2">
+      {/* left */}
+      <div className="flex flex-col gap-y-2.5">
         <p className="text-lg font-semibold flex gap-x-1.5 items-center">
           <button
             type="button"
@@ -142,12 +144,13 @@ export default function TaskBar({
             ""
           )}
         </p>
-        <div className="flex gap-x-5 items-center">
+        {/* CreatedAt & Due flex-container */}
+        <div className="flex gap-x-5 items-center mobile:flex-col mobile:items-start mobile:gap-y-2.5">
           <p
-            className="max-w-[20.5ch] flex items-center gap-x-1.5 text-secForeground"
+            className="flex items-center gap-x-1.5 text-secForeground"
             title={`Task created at ${taskCreatedAt}`}
           >
-            <CreatedIcon /> <span>{taskCreatedAt}</span>
+            <CreatedIcon /> <span className="text-nowrap">{taskCreatedAt}</span>
           </p>
           <p
             className={clsx(
@@ -160,12 +163,12 @@ export default function TaskBar({
             )}
             title={`task due at ${taskDueAt}`}
           >
-            <DueIcon /> <span>{taskDueAt}</span>
+            <DueIcon /> <span className="text-nowrap">{taskDueAt}</span>
           </p>
         </div>
       </div>
-
-      <div className="flex items-center gap-x-5 text-xl">
+      {/* right */}
+      <div className="flex items-center gap-x-5 text-xl tablet-sm:gap-x-6">
         {!taskInfo.done ? (
           <>
             <ViewNoteComp

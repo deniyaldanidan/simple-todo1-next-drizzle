@@ -36,11 +36,13 @@ export default function DeleteAccPage() {
       <h2 className="text-section-title-font font-semibold text-danger">
         Delete My Account
       </h2>
-      <p className="text-lg text-justify mt-2">
-        <strong className="text-warn text-xl">Warning:</strong> Deleting your
-        account is permanent. All your projects, tasks, and data will be
-        permanently removed and cannot be recovered. Are you sure you want to
-        proceed?
+      <p className="text-section-subtitle-font text-justify mt-2">
+        <strong className="text-warn text-xl tablet:text-lg mr-1">
+          Warning:
+        </strong>{" "}
+        Deleting your account is permanent. All your projects, tasks, and data
+        will be permanently removed and cannot be recovered. Are you sure you
+        want to proceed?
       </p>
       <button
         type="button"
@@ -51,15 +53,15 @@ export default function DeleteAccPage() {
       </button>
       <dialog ref={dialogRef} className="my-dialog bg-background rounded-md">
         <div className="rounded-md">
-          <h3 className="bg-dimBackground capitalize text-danger text-xl font-bold px-4 py-2">
+          <h3 className="bg-dimBackground capitalize text-danger text-xl font-bold px-4 py-2 mobile-md:text-lg">
             Confirm account deletion
           </h3>
           <div className="px-4 pt-2.5 pb-4 bg-terBackground">
-            <p className="text-foreground text-lg">
+            <p className="text-foreground text-lg mobile-md:text-base">
               This action is permanent. All data will be erased.{" "}
               <strong className="text-warn uppercase">Are you sure?</strong>
             </p>
-            <div className="flex justify-center items-center gap-x-5 mt-5">
+            <div className="flex justify-center items-center gap-x-5 mt-6 mobile-xs:flex-col mobile-xs:gap-y-5">
               <button
                 type="button"
                 onClick={() => dialogRef.current?.close()}

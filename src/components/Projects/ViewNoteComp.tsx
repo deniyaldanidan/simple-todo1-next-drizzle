@@ -102,12 +102,12 @@ export default function ViewNoteComp(props: props) {
       </button>
       <dialog
         ref={dialogRef}
-        className="my-dialog"
+        className="my-dialog bg-transparent mobile:w-full mobile-sm:mx-auto mobile-sm:min-w-[95vw]"
         onClose={() => setEditState(false)}
       >
-        <div className="min-h-screen h-fit min-w-64 w-[75vw] bg-dimBackground px-9 py-8">
-          <div className="flex justify-between items-center pb-5 mb-7 border-b-2 border-b-terBackground">
-            <div className="text-foreground text-xl font-semibold uppercase flex items-center gap-x-1.5">
+        <section className="min-h-screen h-fit min-w-64 w-[90vw] max-w-[1024px] bg-dimBackground px-9 py-8 mobile:w-full mobile:mx-auto mobile:px-4 mobile:py-5 mobile-xs:px-3">
+          <div className="flex justify-between items-center gap-x-5 pb-5 mb-7 border-b-2 border-b-terBackground mobile:flex-col mobile:gap-y-5">
+            <div className="text-foreground text-lg font-semibold uppercase flex flex-wrap items-center gap-x-1.5 mobile:justify-center mobile:text-center mobile-sm:text-base">
               {props.type === "PROJ" ? (
                 props.projectName
               ) : (
@@ -124,13 +124,13 @@ export default function ViewNoteComp(props: props) {
               <button
                 type="button"
                 onClick={() => setEditState((prev) => !prev)}
-                className="btn btn-secondary btn-sm"
+                className="btn btn-secondary btn-sm mobile-md:btn-xs"
               >
                 {editState ? "View" : "Edit"}
               </button>
               <button
                 onClick={() => dialogRef.current?.close()}
-                className="btn btn-primary btn-sm"
+                className="btn btn-primary btn-sm mobile-md:btn-xs"
               >
                 Close
               </button>
@@ -161,7 +161,7 @@ export default function ViewNoteComp(props: props) {
               {props.note.length ? props.note : "No notes to show"}
             </p>
           )}
-        </div>
+        </section>
       </dialog>
     </>
   );

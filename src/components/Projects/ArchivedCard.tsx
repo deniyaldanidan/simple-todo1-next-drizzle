@@ -93,32 +93,28 @@ export default function ArchivedCard({ archProjInfo }: props) {
   };
 
   return (
-    <div className="flex justify-between min-w-64 w-full gap-x-7 max-w-xl p-5 rounded-lg bg-dimBackground">
+    <div className="flex justify-between min-w-64 w-full gap-x-7 max-w-xl p-5 rounded-lg bg-dimBackground tablet-sm:flex-col tablet-sm:gap-y-5">
       {/* left */}
       <div className="flex flex-col gap-y-4">
         <div className="flex items-center gap-x-2">
           <span
-            className="block w-3.5 h-3.5 rounded-full border-gray-300 border"
+            className="block w-3.5 h-3.5 rounded-full border-gray-300 border mobile-lg:w-3 mobile:h-3"
             style={{ backgroundColor: archProjInfo.projectColorCode }}
           ></span>
-          <span className="capitalize text-xl">{archProjInfo.projectName}</span>
-        </div>
-        <div className="flex gap-x-2 items-center font-semibold text-base text-secForeground">
-          <span>Created:</span>
-          <span>
-            {enhancedDateFNSFormat(
-              archProjInfo.createdAt,
-              "MMM do, yyyy hh:mm a"
-            )}
+          <span className="capitalize text-xl mobile-lg:text-lg">
+            {archProjInfo.projectName}
           </span>
         </div>
-        <div className="flex gap-x-2 items-center font-semibold text-base text-secForeground">
+        <div className="flex gap-x-1.5 items-center font-semibold text-base text-secForeground mobile-sm:text-sm">
+          <span>Created:</span>
+          <span>
+            {enhancedDateFNSFormat(archProjInfo.createdAt, "MMM do, yyyy")}
+          </span>
+        </div>
+        <div className="flex gap-x-1.5 items-center font-semibold text-base text-secForeground mobile-sm:text-sm">
           <span>Archived:</span>
           <span>
-            {enhancedDateFNSFormat(
-              archProjInfo.archivedAt,
-              "MMM do, yyyy hh:mm a"
-            )}
+            {enhancedDateFNSFormat(archProjInfo.archivedAt, "MMM do, yyyy")}
           </span>
         </div>
       </div>

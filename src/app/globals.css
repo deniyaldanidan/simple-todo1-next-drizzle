@@ -64,6 +64,77 @@
   --section-title-font: 2rem;
   --section-subtitle-font: 1.25rem;
   --input-font: 1.125rem;
+
+  @media (max-width: 1281px) {
+    --page-margin-x: 56px;
+  }
+
+  @media (max-width: 1125px) {
+    --section-title-font: 1.875rem;
+    --section-subtitle-font: 1.225rem;
+    --btn-font: 1.1rem;
+    --input-font: 1.1rem;
+  }
+
+  @media (max-width: 1024px) {
+    --page-margin-x: 45px;
+    --logo-font: 1.375rem;
+    --menu-font: 1.15rem;
+  }
+
+  @media (max-width: 900px) {
+    --page-margin-x: 41px;
+  }
+
+  @media (max-width: 800px) {
+    --page-margin-x: 38px;
+  }
+
+  @media (max-width: 768px) {
+    --page-margin-x: 34px;
+    --section-title-font: 1.75rem;
+    --section-subtitle-font: 1.15rem;
+    --btn-font: 1.05rem;
+    --input-font: 1.05rem;
+  }
+
+  @media (max-width: 640px) {
+    --page-margin-x: 27px;
+    --logo-font: 1.25rem;
+    --menu-font: 1.1rem;
+  }
+
+  @media (max-width: 510px) {
+    --page-margin-x: 22px;
+    --section-title-font: 1.5rem;
+    --section-subtitle-font: 1.05rem;
+    --btn-font: 1.025rem;
+  }
+
+  @media (max-width: 425px) {
+    --page-margin-x: 19px;
+  }
+
+  @media (max-width: 375px) {
+    --page-margin-x: 17px;
+  }
+
+  @media (max-width: 325px) {
+    --page-margin-x: 12px;
+    --logo-font: 1.2rem;
+    --menu-font: 1.075rem;
+    --section-title-font: 1.25rem;
+    --section-subtitle-font: 1rem;
+    --btn-font: 0.925rem;
+    --input-font: 1rem;
+  }
+
+  @media (max-width: 299px) {
+    --page-margin-x: 9px;
+    --logo-font: 1.1rem;
+    --menu-font: 1rem;
+    --section-title-font: 1.125rem;
+  }
 }
 
 @layer base {
@@ -125,8 +196,12 @@
     @apply font-medium duration-150 hover:text-accent;
   }
 
+  .menu-flex-link {
+    @apply flex flex-wrap items-center gap-x-1 w-fit text-menu-font font-medium duration-150 hover:text-accent hover:underline hover:underline-offset-2 mobile-lg:max-w-[8ch];
+  }
+
   .menu-link {
-    @apply text-menu-font font-medium duration-150 hover:text-accent hover:underline hover:underline-offset-2;
+    @apply max-w-[14ch] break-all text-menu-font font-medium duration-150 hover:text-accent hover:underline hover:underline-offset-2;
   }
   .menu-link.active {
     @apply text-accent underline underline-offset-1 hover:underline-offset-2;
@@ -140,7 +215,7 @@
     @apply pl-3.5 pr-5 py-2.5 font-medium capitalize duration-150 hover:bg-background;
   }
   .inp-base-classes {
-    @apply px-2 py-1.5 text-lg text-black font-semibold rounded-md bg-gray-300 outline-none placeholder:text-gray-600 focus:bg-gray-100;
+    @apply w-full px-2 py-1.5 text-input-font leading-8 text-black font-semibold rounded-md bg-gray-300 outline-none placeholder:text-gray-600 focus:bg-gray-100;
   }
 }
 
@@ -155,6 +230,7 @@
   }
 
   .my-dialog {
+    z-index: 100;
     animation: fade-out 0.4s ease-in-out;
   }
 

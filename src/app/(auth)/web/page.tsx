@@ -42,7 +42,7 @@ export default function Page() {
         </h3>
       </section>
       <section className="max-w-[1150px] mx-auto">
-        <h3 className="text-2xl text-secForeground font-semibold mb-4">
+        <h3 className="text-xl text-secForeground font-semibold mb-4 mobile:text-lg">
           Tasks
         </h3>
         {unCompletedTasks.length ? (
@@ -66,7 +66,7 @@ export default function Page() {
       ) : (
         <section className="max-w-[1150px] mx-auto">
           <details>
-            <summary className="mt-10 text-xl text-dimForeground font-semibold">
+            <summary className="mt-10 text-xl text-dimForeground font-semibold mobile:text-lg">
               Completed tasks &#40;{completedTasks.length}&#41;
             </summary>
             <div className="flex flex-col gap-y-5 mt-4 pl-3">

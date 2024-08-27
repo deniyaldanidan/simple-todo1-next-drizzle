@@ -1,9 +1,15 @@
 import { MdAdd as AddIcon } from "react-icons/md";
 import Link from "next/link";
 import myRoutes from "@/utils/myRoutes";
-import SideNavProjectsList from "@/components/Headers/SideNavProjectsList";
+import SideNavProjectsList from "@/components/Headers/ProjectNav/SideNavProjectsList";
+import { GetProjectListReturn } from "@/utils/queryfns/getProjectList";
 
-export default function SideNav() {
+type props = {
+  projectList: GetProjectListReturn | undefined;
+  isFetchingProjectList: boolean;
+};
+
+export default function SideNav(props: props) {
   return (
     <nav className="side-nav-layout">
       <Link href={myRoutes.appHome.path} className="side-nav-link">
@@ -22,7 +28,7 @@ export default function SideNav() {
         >
           <AddIcon /> Add
         </Link>
-        <SideNavProjectsList />
+        <SideNavProjectsList {...props} />
       </div>
     </nav>
   );

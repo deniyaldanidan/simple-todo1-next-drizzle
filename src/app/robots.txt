@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /web/*
+Disallow: /user/*
+Disallow: /api/*

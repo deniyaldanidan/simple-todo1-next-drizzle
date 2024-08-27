@@ -1,7 +1,7 @@
 import axios from "axios";
 import myRoutes from "../myRoutes";
 
-type axiosRtnTyp = {
+export type GetProjectListReturn = {
   projectId: number;
   projectName: string;
   projectColorCode: string;
@@ -9,7 +9,7 @@ type axiosRtnTyp = {
 
 const getProjectList = (token: string) =>
   axios
-    .get<axiosRtnTyp>(myRoutes.projectListApi.path, {
+    .get<GetProjectListReturn>(myRoutes.projectListApi.path, {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then((res) => res.data);

@@ -72,8 +72,34 @@
 > Add added user management
 
 - [ ] Responsivess
-- [ ] SEO optimization
-- [ ] Finale testing
+
+  - [x] HomePage
+  - [x] Sign In
+  - [x] Sign Up
+  - [x] Main-Nav
+  - [x] App-SideNav
+  - [x] User-SideNav
+  - [x] Project-Form
+  - [x] TodoBar
+  - [x] Todo-Form
+  - [x] Today
+  - [x] View-Project
+  - [x] Note-Form
+  - [x] Archives
+  - [x] User Pages
+    - [x] User-Info
+    - [x] Edit User-Info
+    - [x] Change Password
+    - [x] Delete Account
+  - [x] Info-States
+    - [x] Error
+    - [x] Loading
+    - [x] Auths
+
+- [x] Robots
+- [x] Finale testing
+
+> Fix fixed responsiveness and added robots.txt
 
 ## Notes:
 
