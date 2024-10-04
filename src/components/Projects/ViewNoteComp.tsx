@@ -61,6 +61,7 @@ export default function ViewNoteComp(props: props) {
         });
 
         queryClient.invalidateQueries({ queryKey: queryKeys.today });
+        queryClient.invalidateQueries({ queryKey: queryKeys.due });
         dialogRef.current?.close();
       }
     }

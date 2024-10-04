@@ -4,15 +4,15 @@ import TaskBar from "@/components/Projects/TaskBar";
 import LoadingInfo from "@/components/utils/LoadingInfo";
 import useAuthContext from "@/contexts/Auth/useAuthContext";
 import queryKeys from "@/utils/query-keys";
-import getToday from "@/utils/queryfns/getToday";
+import getDue from "@/utils/queryfns/getDue";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 
 export default function Page() {
   const { authObj } = useAuthContext();
   const { isSuccess, data, isLoading } = useQuery({
-    queryKey: queryKeys.today,
-    queryFn: () => getToday(authObj.auth === true ? authObj.accessToken : ""),
+    queryKey: queryKeys.due,
+    queryFn: () => getDue(authObj.auth === true ? authObj.accessToken : ""),
     enabled: authObj.auth === true,
   });
 
@@ -34,10 +34,10 @@ export default function Page() {
     <div className="min-h-screen h-fit px-page-margin-x py-12">
       <section className="pb-5 mb-7 border-b-2 border-b-terBackground">
         <h2 className="text-secForeground text-section-title-font">
-          Today&apos;s priorities
+          Planned Tasks
         </h2>
         <h3 className="text-dimForeground text-section-subtitle-font mt-4">
-          View all tasks scheduled for today, including any that are past due
+          View all scheduled tasks
         </h3>
       </section>
       <section className="max-w-[1150px] mx-auto">

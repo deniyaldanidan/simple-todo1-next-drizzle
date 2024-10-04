@@ -83,6 +83,7 @@
   - [x] TodoBar
   - [x] Todo-Form
   - [x] Today
+  - [x] Due
   - [x] View-Project
   - [x] Note-Form
   - [x] Archives

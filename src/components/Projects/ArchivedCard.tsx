@@ -77,6 +77,7 @@ export default function ArchivedCard({ archProjInfo }: props) {
         exact: true,
       });
       queryClient.invalidateQueries({ queryKey: queryKeys.today, exact: true });
+      queryClient.invalidateQueries({ queryKey: queryKeys.due });
       queryClient.invalidateQueries({
         queryKey: queryKeys.archivesList,
         exact: true,

@@ -24,6 +24,12 @@ const myRoutes = {
   todayApi: {
     path: "/api/projects/today",
   },
+  duePage: {
+    path: "/web/due",
+  },
+  dueApi: {
+    path: "/api/projects/due",
+  },
   archives: {
     path: "/web/archives",
   },

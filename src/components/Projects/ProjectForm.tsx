@@ -85,6 +85,7 @@ export default function ProjectForm(props: props) {
       queryClient.invalidateQueries({ queryKey: queryKeys.projectList });
       if (props.type === "EDIT") {
         queryClient.invalidateQueries({ queryKey: queryKeys.today });
+        queryClient.invalidateQueries({ queryKey: queryKeys.due });
         queryClient.invalidateQueries({
           queryKey: queryKeys.projectView(result.projectId).slice(0, 2),
           exact: false,

@@ -2,6 +2,7 @@ const queryKeys = {
   userInfo: ["user", "info"],
   projectList: ["project", "list"],
   today: ["project", "today"],
+  due: ["project", "due"],
   projectView: (id: number | string) =>
     ["project", { id: `${id}` }, "view"] as const,
   editView: (id: number | string) =>

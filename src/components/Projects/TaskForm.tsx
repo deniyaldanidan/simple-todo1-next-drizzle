@@ -23,7 +23,9 @@ export default function TaskForm(props: props) {
   const { authObj } = useAuthContext();
   const [name, setName] = useState<string>(props.edit ? props.taskName : "");
   const [due, setDue] = useState<string>(
-    props.edit && props.taskDue?.length ? props.taskDue : ""
+    props.edit && props.taskDue?.length
+      ? format(new Date(props.taskDue), "yyyy-MM-dd'T'HH:mm")
+      : "" //YYYY-MM-DDTHH:mm
   );
   const [rootErr, setRootErr] = useState<string>("");
   const [fieldErrs, setFieldErrs] = useState<taskInpsError>({});
@@ -64,6 +66,9 @@ export default function TaskForm(props: props) {
       });
       queryClient.invalidateQueries({
         queryKey: queryKeys.today,
+      });
+      queryClient.invalidateQueries({
+        queryKey: queryKeys.due,
       });
       props.closeDialog();
     },

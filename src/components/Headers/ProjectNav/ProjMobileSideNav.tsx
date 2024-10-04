@@ -63,6 +63,11 @@ export default function ProjMobileSideNav({
         closeFN={dialogCloseFN}
       />
       <MobileNavLink
+        path={myRoutes.duePage.path}
+        linkText="Due"
+        closeFN={dialogCloseFN}
+      />
+      <MobileNavLink
         path={myRoutes.archives.path}
         linkText="Archives"
         closeFN={dialogCloseFN}

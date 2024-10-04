@@ -129,7 +129,7 @@
     --input-font: 1rem;
   }
 
-  @media (max-width: 299px) {
+  @media (max-width: 301px) {
     --page-margin-x: 9px;
     --logo-font: 1.1rem;
     --menu-font: 1rem;

@@ -84,6 +84,9 @@ export default function TaskBar({
       queryClient.invalidateQueries({
         queryKey: queryKeys.today,
       });
+      queryClient.invalidateQueries({
+        queryKey: queryKeys.due,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -106,6 +109,9 @@ export default function TaskBar({
       });
       queryClient.invalidateQueries({
         queryKey: queryKeys.today,
+      });
+      queryClient.invalidateQueries({
+        queryKey: queryKeys.due,
       });
     } catch (error) {
       console.log(error);

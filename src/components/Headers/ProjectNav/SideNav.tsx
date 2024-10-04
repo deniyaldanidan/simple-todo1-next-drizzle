@@ -15,6 +15,9 @@ export default function SideNav(props: props) {
       <Link href={myRoutes.appHome.path} className="side-nav-link">
         Today
       </Link>
+      <Link href={myRoutes.duePage.path} className="side-nav-link">
+        Due
+      </Link>
       <Link href={myRoutes.archives.path} className="side-nav-link">
         Archives
       </Link>
